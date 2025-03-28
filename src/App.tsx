@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { motion } from "framer-motion";
 import {
   Menu,
@@ -16,10 +16,13 @@ import {
   Filter,
   TrendingUp,
 } from "lucide-react";
+import AnimatedFoodBackground from "./components/AnimatedFoodBackground";
+import TestimonialCarousel from "./components/TestimonialCarousel";
 
 function App() {
-  const [isMenuOpen, setIsMenuOpen] = React.useState(false);
-  const [searchQuery, setSearchQuery] = React.useState("");
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const [searchQuery, setSearchQuery] = useState("");
+  const [isFoodAnimationsEnabled, setIsFoodAnimationsEnabled] = useState(true);
 
   const toggleMenu = () => {
     setIsMenuOpen(!isMenuOpen);
@@ -68,7 +71,7 @@ function App() {
     },
   ];
 
-  // Example testimonial data
+  // Enhanced testimonial data with additional entry
   const testimonials = [
     {
       id: 1,
@@ -88,10 +91,22 @@ function App() {
       image:
         "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&q=80&w=800",
     },
+    {
+      id: 3,
+      name: "Aisha Patel",
+      university: "City College",
+      comment:
+        "Being a student on a tight budget, Student's Choice has changed my dining experience! I can now try different cuisines without worrying about the cost.",
+      image:
+        "https://images.unsplash.com/photo-1438761681033-6461ffad8d80?auto=format&fit=crop&q=80&w=800",
+    },
   ];
 
   return (
-    <div className="min-h-screen bg-white">
+    <div className="min-h-screen bg-white overflow-x-hidden">
+      {/* Background Food Animations */}
+      <AnimatedFoodBackground count={12} enabled={isFoodAnimationsEnabled} />
+
       {/* Navigation */}
       <nav className="fixed top-0 w-full glass-effect shadow-sm z-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -199,8 +214,18 @@ function App() {
       {/* Hero Section */}
       <section
         id="home"
-        className="pt-16 bg-gradient-to-r from-red-50 to-orange-50"
+        className="pt-16 bg-gradient-to-r from-red-50 to-orange-50 relative"
       >
+        {/* Toggle for food animations */}
+        <button
+          className="absolute top-20 right-5 z-10 text-xs bg-white p-2 rounded-full shadow-md"
+          onClick={() => setIsFoodAnimationsEnabled(!isFoodAnimationsEnabled)}
+        >
+          {isFoodAnimationsEnabled
+            ? "Disable Food Animations"
+            : "Enable Food Animations"}
+        </button>
+
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-24">
           <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
             <motion.div
@@ -233,8 +258,8 @@ function App() {
               transition={{ duration: 0.6, delay: 0.2 }}
             >
               <img
-                src="https://images.unsplash.com/photo-1484723091739-30a097e8f929?auto=format&fit=crop&q=80&w=800"
-                alt="Delicious food spread"
+                src="/students_choice_logo.jpg"
+                alt="Student's Choice Logo"
                 className="rounded-lg shadow-xl animate-float"
               />
               <motion.div
@@ -433,7 +458,7 @@ function App() {
         </div>
       </section>
 
-      {/* Testimonials Section */}
+      {/* Testimonials Section - Replaced with Carousel */}
       <section id="testimonials" className="py-24 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <motion.div
@@ -450,35 +475,13 @@ function App() {
               Real Stories from Real Students
             </p>
           </motion.div>
-          <div className="mt-16 grid grid-cols-1 md:grid-cols-2 gap-8">
-            {testimonials.map((testimonial, index) => (
-              <motion.div
-                key={testimonial.id}
-                className="bg-gradient-to-br from-red-50 to-orange-50 rounded-xl p-6 shadow-lg"
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.6, delay: index * 0.2 }}
-                whileHover={{ y: -5 }}
-              >
-                <div className="flex items-center">
-                  <img
-                    src={testimonial.image}
-                    alt={testimonial.name}
-                    className="h-12 w-12 rounded-full object-cover ring-2 ring-red-500"
-                  />
-                  <div className="ml-4">
-                    <h3 className="text-lg font-semibold text-gray-900">
-                      {testimonial.name}
-                    </h3>
-                    <p className="text-gray-600">{testimonial.university}</p>
-                  </div>
-                </div>
-                <p className="mt-4 text-gray-600 italic">
-                  "{testimonial.comment}"
-                </p>
-              </motion.div>
-            ))}
+
+          {/* New Testimonial Carousel Component */}
+          <div className="mt-16">
+            <TestimonialCarousel
+              testimonials={testimonials}
+              autoPlayInterval={5000}
+            />
           </div>
         </div>
       </section>
@@ -509,42 +512,42 @@ function App() {
               <div>
                 <label
                   htmlFor="name"
-                  className="block text-sm font-medium text-gray-700"
+                  className="pl-2 block text-sm font-medium text-gray-700"
                 >
                   Name
                 </label>
                 <input
                   type="text"
                   id="name"
-                  className="mt-1 block w-full rounded-lg border-gray-300 shadow-sm focus:border-red-500 focus:ring-red-500 transition-colors"
+                  className="pl-2 mt-1 block w-full rounded-lg border-gray-300 shadow-sm focus:border-red-500 focus:ring-red-500 transition-colors"
                   placeholder="Your name"
                 />
               </div>
               <div>
                 <label
                   htmlFor="email"
-                  className="block text-sm font-medium text-gray-700"
+                  className="pl-2 block text-sm font-medium text-gray-700"
                 >
                   Email
                 </label>
                 <input
                   type="email"
                   id="email"
-                  className="mt-1 block w-full rounded-lg border-gray-300 shadow-sm focus:border-red-500 focus:ring-red-500 transition-colors"
+                  className="pl-2 mt-1 block w-full rounded-lg border-gray-300 shadow-sm focus:border-red-500 focus:ring-red-500 transition-colors"
                   placeholder="you@example.com"
                 />
               </div>
               <div>
                 <label
                   htmlFor="message"
-                  className="block text-sm font-medium text-gray-700"
+                  className="pl-2 block text-sm font-medium text-gray-700"
                 >
                   Message
                 </label>
                 <textarea
                   id="message"
                   rows={4}
-                  className="mt-1 block w-full rounded-lg border-gray-300 shadow-sm focus:border-red-500 focus:ring-red-500 transition-colors"
+                  className="pl-2 mt-1 block w-full rounded-lg border-gray-300 shadow-sm focus:border-red-500 focus:ring-red-500 transition-colors"
                   placeholder="Your message"
                 />
               </div>
@@ -595,7 +598,7 @@ function App() {
               Making student dining affordable and delicious
             </p>
             <p className="mt-8 text-gray-400">
-              &copy; 2024 Student's Choice. All rights reserved.
+              2025 Student's Choice. All rights reserved.
             </p>
           </motion.div>
         </div>
