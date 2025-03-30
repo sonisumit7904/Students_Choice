@@ -18,6 +18,7 @@ import {
 } from "lucide-react";
 import AnimatedFoodBackground from "./components/AnimatedFoodBackground";
 import TestimonialCarousel from "./components/TestimonialCarousel";
+import { Analytics } from "@vercel/analytics/react";
 
 function App() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -603,6 +604,8 @@ function App() {
           </motion.div>
         </div>
       </footer>
+
+      <Analytics />
     </div>
   );
 }
