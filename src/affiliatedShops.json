@@ -1,0 +1,76 @@
+[
+  {
+    "id": "nitc001",
+    "name": "NIT Cafe Hub",
+    "address": "Near Main Gate, NIT Raipur, Raipur, Chhattisgarh",
+    "latitude": 21.24971,
+    "longitude": 81.60502,
+    "discount": "15% off for NIT Students",
+    "offers": ["Combo Meal Deal", "Free Drink Fridays"],
+    "tags": ["nit_raipur", "cafe", "snacks", "fast_food"],
+    "image": "https://images.unsplash.com/photo-1514933651103-005eec06c04b?auto=format&fit=crop&q=60&w=500",
+    "cuisine": "Cafe, Fast Food",
+    "rating": 4.3,
+    "deliveryTime": "15-20 min",
+    "priceForTwo": "₹300",
+    "trending": true
+  },
+  {
+    "id": "aiimsf002",
+    "name": "AIIMS Canteen Corner",
+    "address": "Inside AIIMS Campus, Near OPD, Raipur, Chhattisgarh",
+    "latitude": 21.22885,
+    "longitude": 81.63255,
+    "discount": "10% off (Show ID)",
+    "offers": ["Thali Special"],
+    "tags": ["aiims", "canteen", "lunch", "indian"],
+    "image": "https://images.unsplash.com/photo-1555396273-367ea4eb4db5?auto=format&fit=crop&q=60&w=500",
+    "cuisine": "Indian, Canteen",
+    "rating": 4.0,
+    "deliveryTime": "10-15 min",
+    "priceForTwo": "₹200",
+    "trending": false
+  },
+   {
+    "id": "rpizza003",
+    "name": "Raipur Pizza Place",
+    "address": "Main Road, Pandri, Raipur, Chhattisgarh",
+    "latitude": 21.2451,
+    "longitude": 81.6473,
+    "discount": "Buy 1 Get 1 Medium Pizza (Students Only)",
+    "offers": [],
+    "tags": ["raipur_general", "pizza", "italian"],
+    "image": "https://images.unsplash.com/photo-1604382354936-07c5d9983bd3?auto=format&fit=crop&q=60&w=500",
+    "cuisine": "Pizza, Italian",
+    "rating": 4.5,
+    "deliveryTime": "30-40 min",
+    "priceForTwo": "₹500",
+    "trending": true
+  },
+  {
+    "id": "ekta-juice",
+    "name": "Ekta juice & food corner",
+    "address": "GE Rd, near NIT Gate 2, University Area, Raipur, Chhattisgarh 492010",
+    "latitude": 21.250222,
+    "longitude": 81.600590,
+    "discount": "10% Off for Students (Show ID)",
+    "offers": [
+      "Student Discount Available",
+      "Combo Deals"
+    ],
+    "tags": [
+      "nit_raipur",
+      "juice",
+      "snacks",
+      "fast_food",
+      "street_food",
+      "raipur_general"
+    ],
+    "image": "https://lh5.googleusercontent.com/p/AF1QipNVU4b6N7C4lF8c4z9g8z_XmQG3v_yW7uKkEw2b=w408-h306-k-no",
+    "cuisine": "Juice, Fast Food, Snacks, Beverages",
+    "rating": 4.2,
+    "deliveryTime": "Approx. 15 min",
+    "priceForTwo": "₹150",
+    "trending": true
+  }
+]
