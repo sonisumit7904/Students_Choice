@@ -1,0 +1,37 @@
+[
+  {
+    "id": 1,
+    "name": "Anjali Verma",
+    "university": "Student, NIT Raipur",
+    "comment": "Being an engineering student means watching my budget closely. 'Student's Choice' has been fantastic! Getting that consistent discount at my favorite cafes near campus just by showing my ID makes eating out so much more affordable. Plus, it's how I discovered 'Chai Point Express' – my new go-to spot!",
+    "image": "/images/student_avatar1.jpg"
+  },
+  {
+    "id": 2,
+    "name": "Rohan Kumar",
+    "university": "Student, Raipur",
+    "comment": "I love the loyalty program! That 'Buy 5, Get 1 Free' deal at 'Campus Bites' is awesome – makes me feel like a valued customer. 'Student's Choice' isn't just saving me money, it's making my regular haunts even better.",
+    "image": "/images/student_avatar2.jpg"
+  },
+  {
+    "id": 3,
+    "name": "Mr. Alok Gupta",
+    "university": "Owner, 'Campus Bites' Cafe",
+    "comment": "Partnering with 'Student's Choice' was a smart business decision. We've seen a noticeable increase in student footfall, especially during weekdays. It provides targeted visibility within the NIT community that's hard to achieve otherwise. The onboarding was smooth, and the program is well-managed.",
+    "image": "/images/owner_avatar1.jpg"
+  },
+  {
+    "id": 4,
+    "name": "Sameer Joshi",
+    "university": "Student, NIT Raipur",
+    "comment": "What I appreciate most is the simplicity. No complicated apps, just show your ID. I know the restaurants listed in 'Student's Choice' offer good value, which makes deciding where to grab a quick lunch between classes super easy and reliable.",
+    "image": "/images/student_avatar3.jpg"
+  },
+  {
+    "id": 5,
+    "name": "Priya Singh",
+    "university": "Manager, 'The Food Hub'",
+    "comment": "The collaboration through 'Student's Choice' has been very positive. The happy hour promotion suggested by the program has genuinely boosted our traffic during quieter afternoon hours. Being recognized as a 'Student's Choice' venue definitely enhances our reputation among local college students.",
+    "image": "/images/manager_avatar1.jpg"
+  }
+]

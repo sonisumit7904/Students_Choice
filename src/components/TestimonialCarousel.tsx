@@ -1,18 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-
-interface Testimonial {
-  id: number;
-  name: string;
-  university: string;
-  comment: string;
-  image: string;
-}
-
-interface TestimonialCarouselProps {
-  testimonials: Testimonial[];
-  autoPlayInterval?: number;
-}
+import { Testimonial, TestimonialCarouselProps } from "../types";
 
 const TestimonialCarousel: React.FC<TestimonialCarouselProps> = ({
   testimonials,
@@ -41,8 +29,7 @@ const TestimonialCarousel: React.FC<TestimonialCarouselProps> = ({
   const handlePrev = () => {
     setDirection(-1);
     setCurrentIndex(
-      (prevIndex) =>
-        (prevIndex - 1 + testimonials.length) % testimonials.length,
+      (prevIndex) => (prevIndex - 1 + testimonials.length) % testimonials.length
     );
   };
 
@@ -81,11 +68,6 @@ const TestimonialCarousel: React.FC<TestimonialCarouselProps> = ({
             className="bg-gradient-to-br from-red-50 to-orange-50 rounded-xl p-8 shadow-lg"
           >
             <div className="flex items-center">
-              <img
-                src={testimonials[currentIndex].image}
-                alt={testimonials[currentIndex].name}
-                className="h-16 w-16 rounded-full object-cover ring-2 ring-red-500"
-              />
               <div className="ml-4">
                 <h3 className="text-xl font-semibold text-gray-900">
                   {testimonials[currentIndex].name}

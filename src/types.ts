@@ -64,6 +64,14 @@ export interface TestimonialCarouselProps {
   autoPlayInterval?: number;
 }
 
+export interface Testimonial {
+  // id: number;
+  name: string;
+  university: string;
+  comment: string;
+  image: string;
+}
+
 // Props for AnimatedFoodBackground
 export interface AnimatedFoodBackgroundProps {
   count: number;

@@ -23,9 +23,17 @@ import MapContainer from "./components/MapContainer";
 import ShopCard from "./components/ShopCard";
 import AnimatedFoodBackground from "./components/AnimatedFoodBackground";
 import TestimonialCarousel from "./components/TestimonialCarousel";
-import allShopsData from "./affiliatedShops.json";
+import allShopsData from "./data/affiliatedShops.json";
+import testimonials from "./data/testimonials.json"; // Assuming this is a JSON file with testimonial data
 import { Analytics } from "@vercel/analytics/react";
 import { Coordinates, KnownLocation, Shop, Testimonial } from "./types";
+
+// Import your floating food images - MAKE SURE YOU HAVE THESE IMAGES
+import burgerImg from "../public/android-chrome-512x512.png"; // Adjust path
+import momosImg from "../public/android-chrome-512x512.png"; // Adjust path
+import pizzaImg from "../public/android-chrome-512x512.png"; // Adjust path
+import tomatoImg from "../public/android-chrome-512x512.png"; // Adjust path
+import basilImg from "../public/android-chrome-512x512.png"; // Adjust path
 
 const typedShopsData: Shop[] = allShopsData;
 
@@ -131,11 +139,6 @@ function App(): JSX.Element {
     setSelectedShopId(null); // Deselect shop when map background is clicked
   }, []);
 
-  // Hardcoded testimonials data
-  const testimonials: Testimonial[] = [
-    // ... (keep your testimonials)
-  ];
-
   // --- Typed Event Handlers (no changes needed) ---
   const handleSearchInputChange = (
     e: React.ChangeEvent<HTMLInputElement>
@@ -164,6 +167,43 @@ function App(): JSX.Element {
   return (
     <div className="min-h-screen bg-white overflow-x-hidden">
       <AnimatedFoodBackground count={12} enabled={isFoodAnimationsEnabled} />
+      {/* Floating Food Items - Positioned Absolutely */}
+      <img
+        src={burgerImg}
+        alt="Burger"
+        className="absolute w-32 md:w-48 lg:w-64 top-1/2 left-4 md:left-10 lg:left-20 transform -translate-y-1/2 animate-float opacity-90"
+        style={{ animationDelay: "0s", zIndex: 1000 }}
+      />
+      <img
+        src={momosImg}
+        alt="Momos"
+        className="absolute w-24 md:w-32 lg:w-40 top-10 right-4 md:right-10 lg:right-20 animate-float opacity-90"
+        style={{ animationDelay: "1s", zIndex: 1000 }}
+      />
+      <img
+        src={pizzaImg}
+        alt="Pizza Slice"
+        className="absolute w-28 md:w-36 lg:w-44 bottom-10 right-10 md:right-20 lg:right-40 animate-float opacity-90"
+        style={{ animationDelay: "0.5s", zIndex: 1000 }}
+      />
+      <img
+        src={tomatoImg}
+        alt="Tomato"
+        className="absolute w-8 md:w-10 bottom-20 left-10 md:left-32 animate-float opacity-80"
+        style={{ animationDelay: "1.5s", zIndex: 1000 }}
+      />
+      <img
+        src={basilImg}
+        alt="Basil leaf"
+        className="absolute w-6 md:w-8 top-20 left-1/3 animate-float opacity-80"
+        style={{ animationDelay: "2s", zIndex: 1000 }}
+      />
+      <img
+        src={tomatoImg}
+        alt="Tomato Slice"
+        className="absolute w-6 md:w-8 bottom-1/2 right-1/4 animate-float opacity-80"
+        style={{ animationDelay: "2.5s", zIndex: 1000 }}
+      />
 
       {/* Navigation */}
       <nav className="fixed top-0 w-full glass-effect shadow-sm z-50">
@@ -634,7 +674,7 @@ function App(): JSX.Element {
                     href="mailto:studentschoice@gmail.com"
                     className="mt-2 inline-block text-orange-600 hover:text-orange-800 font-semibold"
                   >
-                    studentschoice@gmail.com
+                    studentschoice11@gmail.com
                   </a>
                 </div>
               </div>
@@ -837,7 +877,7 @@ function App(): JSX.Element {
                 </li>
                 <li className="flex items-center">
                   <Mail className="w-4 h-4 mr-2 text-orange-400" />{" "}
-                  studentschoice@gmail.com
+                  studentschoice11@gmail.com
                 </li>
                 <li className="flex items-center">
                   <MapPin className="w-4 h-4 mr-2 text-amber-400" /> Raipur,
@@ -847,7 +887,7 @@ function App(): JSX.Element {
             </div>
           </div>
           <div className="mt-8 pt-8 border-t border-gray-700 text-center text-sm">
-            © {new Date().getFullYear()} Student's Choice. All rights reserved.
+            {new Date().getFullYear()} Student's Choice. All rights reserved.
             Designed to help students save.
           </div>
         </div>

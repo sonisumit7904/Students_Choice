@@ -1,50 +1,55 @@
+/* src/index.css */
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
+@layer base {
+  body {
+    @apply font-sans antialiased text-gray-800; /* Set default font and color */
+  }
+  /* Add other base styles if needed */
+}
+
+@layer components {
+  /* Reusable component styles using @apply */
+  .card-zoom {
+    @apply transition-all duration-300 ease-in-out hover:scale-[1.03] hover:shadow-xl; /* Smoother zoom */
+  }
+
+  .image-zoom {
+    @apply transition-all duration-500 ease-in-out;
+  }
+
+  .card-zoom:hover .image-zoom {
+    @apply scale-110;
+  }
+
+  .gradient-overlay {
+    background: linear-gradient(
+      180deg,
+      rgba(0, 0, 0, 0) 40%,
+      /* Start gradient lower */ rgba(0, 0, 0, 0.7) 100%
+    );
+  }
+
+  .text-shadow-subtle {
+    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.2); /* Softer shadow */
+  }
+
+  .glass-effect-light {
+    @apply backdrop-blur-md bg-white/80 border border-white/30; /* Lighter glass */
+  }
+}
+
+/* Keep keyframes if not defined in tailwind.config.js */
+/*
 @keyframes float {
-  0% {
-    transform: translateY(0px);
-  }
-  50% {
-    transform: translateY(-10px);
-  }
-  100% {
-    transform: translateY(0px);
-  }
+  0% { transform: translateY(0px); }
+  50% { transform: translateY(-10px); }
+  100% { transform: translateY(0px); }
 }
 
 .animate-float {
   animation: float 3s ease-in-out infinite;
 }
-
-.card-zoom {
-  @apply transition-all duration-300 hover:scale-[1.02];
-}
-
-.image-zoom {
-  @apply transition-all duration-500;
-}
-
-.card-zoom:hover .image-zoom {
-  @apply scale-110;
-}
-
-.gradient-overlay {
-  background: linear-gradient(
-    180deg,
-    rgba(0, 0, 0, 0) 0%,
-    rgba(0, 0, 0, 0.7) 100%
-  );
-}
-
-.text-shadow {
-  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
-}
-
-.glass-effect {
-  backdrop-filter: blur(8px);
-  background: rgba(255, 255, 255, 0.8);
-}
-
-
+*/
