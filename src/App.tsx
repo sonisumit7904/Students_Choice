@@ -27,13 +27,7 @@ import allShopsData from "./data/affiliatedShops.json";
 import testimonials from "./data/testimonials.json"; // Assuming this is a JSON file with testimonial data
 import { Analytics } from "@vercel/analytics/react";
 import { Coordinates, KnownLocation, Shop, Testimonial } from "./types";
-
-// Import your floating food images - MAKE SURE YOU HAVE THESE IMAGES
-import burgerImg from "../public/android-chrome-512x512.png"; // Adjust path
-import momosImg from "../public/android-chrome-512x512.png"; // Adjust path
-import pizzaImg from "../public/android-chrome-512x512.png"; // Adjust path
-import tomatoImg from "../public/android-chrome-512x512.png"; // Adjust path
-import basilImg from "../public/android-chrome-512x512.png"; // Adjust path
+import FloatingFoods from "./components/FloatingFoods"; // Import your floating food component
 
 const typedShopsData: Shop[] = allShopsData;
 
@@ -167,44 +161,7 @@ function App(): JSX.Element {
   return (
     <div className="min-h-screen bg-white overflow-x-hidden">
       <AnimatedFoodBackground count={12} enabled={isFoodAnimationsEnabled} />
-      {/* Floating Food Items - Positioned Absolutely */}
-      <img
-        src={burgerImg}
-        alt="Burger"
-        className="absolute w-32 md:w-48 lg:w-64 top-1/2 left-4 md:left-10 lg:left-20 transform -translate-y-1/2 animate-float opacity-90"
-        style={{ animationDelay: "0s", zIndex: 1000 }}
-      />
-      <img
-        src={momosImg}
-        alt="Momos"
-        className="absolute w-24 md:w-32 lg:w-40 top-10 right-4 md:right-10 lg:right-20 animate-float opacity-90"
-        style={{ animationDelay: "1s", zIndex: 1000 }}
-      />
-      <img
-        src={pizzaImg}
-        alt="Pizza Slice"
-        className="absolute w-28 md:w-36 lg:w-44 bottom-10 right-10 md:right-20 lg:right-40 animate-float opacity-90"
-        style={{ animationDelay: "0.5s", zIndex: 1000 }}
-      />
-      <img
-        src={tomatoImg}
-        alt="Tomato"
-        className="absolute w-8 md:w-10 bottom-20 left-10 md:left-32 animate-float opacity-80"
-        style={{ animationDelay: "1.5s", zIndex: 1000 }}
-      />
-      <img
-        src={basilImg}
-        alt="Basil leaf"
-        className="absolute w-6 md:w-8 top-20 left-1/3 animate-float opacity-80"
-        style={{ animationDelay: "2s", zIndex: 1000 }}
-      />
-      <img
-        src={tomatoImg}
-        alt="Tomato Slice"
-        className="absolute w-6 md:w-8 bottom-1/2 right-1/4 animate-float opacity-80"
-        style={{ animationDelay: "2.5s", zIndex: 1000 }}
-      />
-
+      {/* <FloatingFoods /> */}
       {/* Navigation */}
       <nav className="fixed top-0 w-full glass-effect shadow-sm z-50">
         {/* ... existing nav code ... */}
@@ -318,7 +275,6 @@ function App(): JSX.Element {
           </motion.div>
         )}
       </nav>
-
       {/* Hero Section */}
       <section
         id="home"
@@ -369,7 +325,6 @@ function App(): JSX.Element {
         {/* <div className="absolute top-0 right-0 -mt-20 -mr-20 w-64 h-64 bg-red-200 rounded-full opacity-30"></div>
           <div className="absolute bottom-0 left-0 -mb-24 -ml-12 w-80 h-80 bg-orange-200 rounded-full opacity-30"></div> */}
       </section>
-
       {/* Search Section */}
       <section
         id="search-area"
@@ -403,7 +358,6 @@ function App(): JSX.Element {
           </div>
         </div>
       </section>
-
       {/* What We Do Section */}
       <section id="what-we-do" className="py-24 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -488,7 +442,6 @@ function App(): JSX.Element {
           </div>
         </div>
       </section>
-
       {/* Shops Section */}
       <section
         id="shops"
@@ -584,7 +537,6 @@ function App(): JSX.Element {
           </div>
         </div>
       </section>
-
       {/* Testimonials Section */}
       <section id="testimonials" className="py-24 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -610,7 +562,6 @@ function App(): JSX.Element {
           </div>
         </div>
       </section>
-
       {/* Contact Section */}
       <section
         id="contact"
@@ -774,7 +725,6 @@ function App(): JSX.Element {
           </div>
         </div>
       </section>
-
       {/* Footer */}
       <footer className="bg-gray-900 text-gray-400 py-12">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -892,7 +842,6 @@ function App(): JSX.Element {
           </div>
         </div>
       </footer>
-
       <Analytics />
     </div>
   );
