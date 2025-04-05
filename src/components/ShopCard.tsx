@@ -13,6 +13,8 @@ const placeholderImage = (
     name
   )}`;
 
+const errorImageUrl = "./shops/ImageError.jpg"; // Define your error image URL
+
 const ShopCard: React.FC<ShopCardProps> = ({
   shop,
   onClick,
@@ -29,15 +31,15 @@ const ShopCard: React.FC<ShopCardProps> = ({
   const handleImageError = (
     e: React.SyntheticEvent<HTMLImageElement, Event>
   ) => {
-    // Check if the source that failed is DIFFERENT from the placeholder we are about to set
-    if (e.currentTarget.src !== placeholderUrl) {
+    // Check if the source that failed is DIFFERENT from the error image we are about to set
+    if (e.currentTarget.src !== errorImageUrl) {
       console.warn(
-        `Image failed to load: ${e.currentTarget.src}. Falling back to placeholder.`
+        `Image failed to load: ${e.currentTarget.src}. Falling back to error image.`
       );
-      e.currentTarget.src = placeholderUrl;
+      e.currentTarget.src = errorImageUrl;
     } else {
-      // Optional: Log if even the placeholder failed, but don't reset src again
-      console.error(`Placeholder image failed to load: ${placeholderUrl}`);
+      // Optional: Log if even the error image failed, but don't reset src again
+      console.error(`Error image failed to load: ${errorImageUrl}`);
     }
   };
 
@@ -65,7 +67,6 @@ const ShopCard: React.FC<ShopCardProps> = ({
         <img
           src={imageUrl}
           alt={`${shop.name} storefront or food`}
-          // Use the modified error handler
           onError={handleImageError}
           className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105"
         />
