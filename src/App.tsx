@@ -33,8 +33,8 @@ import FloatingFoods from "./components/FloatingFoods"; // Import your floating 
 const typedShopsData: Shop[] = allShopsData;
 
 const knownLocations: Record<string, KnownLocation> = {
-  "nit raipur": { lat: 21.2497, lng: 81.605, tag: "nit_raipur", zoom: 15 },
-  aiims: { lat: 21.2288, lng: 81.6325, tag: "aiims", zoom: 15 },
+  "nit raipur": { lat: 21.2497222, lng: 81.6024542, tag: "nit_raipur", zoom: 15 },
+  aiims: { lat: 21.2584627, lng: 81.5785734, tag: "aiims", zoom: 15 },
   "raipur default": { lat: 21.2514, lng: 81.6296, tag: null, zoom: 13 },
 };
 
