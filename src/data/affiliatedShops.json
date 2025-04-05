@@ -3,8 +3,8 @@
     "id": "sandwichjn001",
     "name": "Sandwich Jn.",
     "address": "Near Aiims Hospital Beside HP Patrol Pump Tatibandh, Raipur",
-    "latitude": 21.2478,
-    "longitude": 81.6044,
+    "latitude": 21.2599912,
+    "longitude": 81.5756173,
     "discount": "5% off for NIT, AIIMS, IIM, IIT-Bhilai, Ravishankar University Students (Show ID)",
     "offers": [],
     "tags": [
@@ -23,22 +23,20 @@
       "beverages",
       "raipur_general"
     ],
-    "image": "https://lh3.googleusercontent.com/p/AF1QipN-dC-M6f7bL-jQ2Z8xJ8Y7gZf6Hw3gK3eBw4=s1360-w1360-h1020",
+    "image": "./shops/SandwichJn.png",
     "cuisine": "Cafe, Fast Food, Beverages",
     "rating": 4.2,
-    "deliveryTime": "20-30 min",
-    "priceForTwo": "₹200",
     "trending": false
   },
   {
     "id": "southindian002",
     "name": "South indian food junction",
     "address": "NIT Chopati, Raipur",
-    "latitude": 21.2505,
-    "longitude": 81.6040,
+    "latitude": 21.250653,
+    "longitude": 81.6000461,
     "discount": "10% off for NIT/AIIMS students",
     "offers": [
-      "Happy Hours: Discount unspecified (Time unspecified)"
+      "10% off for students from All Universities in Raipur"
     ],
     "tags": [
       "nit_raipur",
@@ -49,11 +47,9 @@
       "raipur_general",
       "chowpatty"
     ],
-    "image": "https://drive.google.com/uc?id=1GfuKM2CxQMoeVkFT21h_TnnIrICH0c9w&export=download",
+    "image": "./shops/SouthIndia.jpg",
     "cuisine": "South Indian, Tiffin",
     "rating": 4.0,
-    "deliveryTime": "15-25 min",
-    "priceForTwo": "₹150",
     "trending": false
   },
   {
@@ -75,19 +71,17 @@
       "nalanda_parisar",
       "raipur_general"
     ],
-    "image": "https://drive.google.com/uc?id=1XTU3CODUIKlKUWD2t2bVCHSWiAA4zLwL&export=download",
+    "image": "./shops/AnnaPunjabi.jpg",
     "cuisine": "Punjabi, North Indian",
     "rating": 4.5,
-    "deliveryTime": "25-35 min",
-    "priceForTwo": "₹400",
-    "trending": true
+    "trending": false
   },
   {
-    "id": "goodengineer004",
-    "name": "The Good Engineer",
+    "id": "Foodengineer004",
+    "name": "The Food Engineer",
     "address": "Chowpatty, Near NIT, Raipur",
-    "latitude": 21.2505,
-    "longitude": 81.6040,
+    "latitude": 21.250653,
+    "longitude": 81.6000461,
     "discount": "10% off for students from All Universities in Raipur",
     "offers": [],
     "tags": [
@@ -98,19 +92,17 @@
       "chowpatty",
       "raipur_general"
     ],
-    "image": "https://drive.google.com/uc?id=15ilnpz5c540GEx-m0ou17En2eyEeBxBE&export=download",
+    "image": "./shops/TheFoodEngineer.jpg",
     "cuisine": "Snacks, Fast Food",
     "rating": 4.0,
-    "deliveryTime": "15-20 min",
-    "priceForTwo": "₹200",
     "trending": true
   },
   {
     "id": "macha005",
     "name": "Macha",
     "address": "Nalanda parisar amanaka road ayurvedic college ke samne, Raipur",
-    "latitude": 21.2488,
-    "longitude": 81.6005,
+    "latitude": 21.2464754,
+    "longitude": 81.6057769,
     "discount": "5% off for NIT/AIIMS students",
     "offers": [],
     "tags": [
@@ -122,11 +114,9 @@
       "nalanda_parisar",
       "raipur_general"
     ],
-    "image": "https://lh5.googleusercontent.com/p/AF1QipN9bZ2z7Q9m8rX0J9hJ3L_XwY4R_vW8uKkEw3b=w408-h306-k-no",
+    "image": "./shops/MaCha.png",
     "cuisine": "Cafe, Fast Food (Pure Veg)",
     "rating": 4.0,
-    "deliveryTime": "20-30 min",
-    "priceForTwo": "₹250",
     "trending": false
   }
 ]

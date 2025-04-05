@@ -101,15 +101,6 @@ const ShopCard: React.FC<ShopCardProps> = ({
               {shop.rating.toFixed(1)}
             </span>
           )}
-          {shop.deliveryTime && (
-            <span className="flex items-center">
-              <Clock className="w-3 h-3 mr-1 text-gray-400" />{" "}
-              {shop.deliveryTime}
-            </span>
-          )}
-          {/* {shop.priceForTwo && (
-             <span>{shop.priceForTwo}</span>
-           )} */}
         </div>
 
         {/* Offers/Highlights */}
