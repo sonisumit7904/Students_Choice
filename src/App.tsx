@@ -33,7 +33,12 @@ import FloatingFoods from "./components/FloatingFoods"; // Import your floating 
 const typedShopsData: Shop[] = allShopsData;
 
 const knownLocations: Record<string, KnownLocation> = {
-  "nit raipur": { lat: 21.2497222, lng: 81.6024542, tag: "nit_raipur", zoom: 15 },
+  "nit raipur": {
+    lat: 21.2497222,
+    lng: 81.6024542,
+    tag: "nit_raipur",
+    zoom: 15,
+  },
   aiims: { lat: 21.2584627, lng: 81.5785734, tag: "aiims", zoom: 15 },
   "raipur default": { lat: 21.2514, lng: 81.6296, tag: null, zoom: 13 },
 };
@@ -47,14 +52,14 @@ function App(): JSX.Element {
   const [isFoodAnimationsEnabled, setIsFoodAnimationsEnabled] =
     useState<boolean>(true);
   const [mapCenter, setMapCenter] = useState<Coordinates>(
-    knownLocations["raipur default"]
+    knownLocations["raipur default"],
   );
   const [mapZoom, setMapZoom] = useState<number>(
-    knownLocations["raipur default"].zoom
+    knownLocations["raipur default"].zoom,
   );
   const [filteredShops, setFilteredShops] = useState<Shop[]>(typedShopsData); // Initialize with all shops
   const [selectedShopId, setSelectedShopId] = useState<string | number | null>(
-    null
+    null,
   ); // <-- State for selected shop ID
 
   useEffect(() => {
@@ -85,8 +90,8 @@ function App(): JSX.Element {
         setFilteredShops(
           typedShopsData.filter(
             (shop) =>
-              shop.tags && shop.tags.includes(foundLocation.tag as string)
-          )
+              shop.tags && shop.tags.includes(foundLocation.tag as string),
+          ),
         );
       } else {
         setFilteredShops(typedShopsData);
@@ -97,7 +102,7 @@ function App(): JSX.Element {
       setMapCenter(knownLocations["raipur default"]);
       setMapZoom(knownLocations["raipur default"].zoom);
       alert(
-        `Location "${searchTerm}" not recognized or no specific tag found. Showing all affiliated shops.`
+        `Location "${searchTerm}" not recognized or no specific tag found. Showing all affiliated shops.`,
       );
     }
   };
@@ -117,7 +122,7 @@ function App(): JSX.Element {
         mapElement.scrollIntoView({ behavior: "smooth", block: "nearest" });
       }
     },
-    [selectedShopId]
+    [selectedShopId],
   ); // Dependency array includes selectedShopId for toggling logic
 
   // --- Handler for Marker Click (passed to MapContainer) ---
@@ -129,7 +134,7 @@ function App(): JSX.Element {
         handleCardClick(shop);
       }
     },
-    [handleCardClick]
+    [handleCardClick],
   ); // handleCardClick is memoized with useCallback
 
   // --- Handler for Clicking the Map Background (Deselection) ---
@@ -139,13 +144,13 @@ function App(): JSX.Element {
 
   // --- Typed Event Handlers (no changes needed) ---
   const handleSearchInputChange = (
-    e: React.ChangeEvent<HTMLInputElement>
+    e: React.ChangeEvent<HTMLInputElement>,
   ): void => {
     setSearchQuery(e.target.value);
   };
 
   const handleSearchInputKeyPress = (
-    e: React.KeyboardEvent<HTMLInputElement>
+    e: React.KeyboardEvent<HTMLInputElement>,
   ): void => {
     if (e.key === "Enter") {
       handleSearch();

@@ -35,9 +35,7 @@
     "latitude": 21.250653,
     "longitude": 81.6000461,
     "discount": "10% off for NIT/AIIMS students",
-    "offers": [
-      "10% off for students from All Universities in Raipur"
-    ],
+    "offers": ["10% off for students from All Universities in Raipur"],
     "tags": [
       "nit_raipur",
       "aiims",

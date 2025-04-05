@@ -7,10 +7,10 @@ import { Shop, ShopCardProps } from "../types";
 const placeholderImage = (
   name: string,
   color: string = "FFC107",
-  textColor: string = "000000"
+  textColor: string = "000000",
 ) =>
   `https://via.placeholder.com/300x200/${color}/${textColor}?Text=${encodeURIComponent(
-    name
+    name,
   )}`;
 
 const errorImageUrl = "./shops/ImageError.jpg"; // Define your error image URL
@@ -29,12 +29,12 @@ const ShopCard: React.FC<ShopCardProps> = ({
   const imageUrl = shop.image || placeholderImage(shop.name); // Initial URL
 
   const handleImageError = (
-    e: React.SyntheticEvent<HTMLImageElement, Event>
+    e: React.SyntheticEvent<HTMLImageElement, Event>,
   ) => {
     // Check if the source that failed is DIFFERENT from the error image we are about to set
     if (e.currentTarget.src !== errorImageUrl) {
       console.warn(
-        `Image failed to load: ${e.currentTarget.src}. Falling back to error image.`
+        `Image failed to load: ${e.currentTarget.src}. Falling back to error image.`,
       );
       e.currentTarget.src = errorImageUrl;
     } else {
@@ -111,7 +111,7 @@ const ShopCard: React.FC<ShopCardProps> = ({
               {shop.offers.slice(0, 2).map(
                 (
                   offer,
-                  index // Show max 2 offers
+                  index, // Show max 2 offers
                 ) => (
                   <li
                     key={index}
@@ -119,7 +119,7 @@ const ShopCard: React.FC<ShopCardProps> = ({
                   >
                     {offer}
                   </li>
-                )
+                ),
               )}
             </ul>
           </div>

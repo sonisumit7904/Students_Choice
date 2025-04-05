@@ -29,7 +29,8 @@ const TestimonialCarousel: React.FC<TestimonialCarouselProps> = ({
   const handlePrev = () => {
     setDirection(-1);
     setCurrentIndex(
-      (prevIndex) => (prevIndex - 1 + testimonials.length) % testimonials.length
+      (prevIndex) =>
+        (prevIndex - 1 + testimonials.length) % testimonials.length,
     );
   };
 

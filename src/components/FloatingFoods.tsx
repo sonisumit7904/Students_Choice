@@ -23,7 +23,7 @@ const FloatingFoods = () => {
         src={burgerImg}
         alt="Burger"
         className="absolute w-32 md:w-48 lg:w-64 top-1/2 left-4 md:left-10 lg:left-20 transform -translate-y-1/2 animate-float opacity-90"
-        style={{ animationDelay: "0s" , zIndex: -1 }}
+        style={{ animationDelay: "0s", zIndex: -1 }}
       />
       <img
         src={momosImg}
