@@ -7,20 +7,6 @@
     "image": "/images/student_avatar1.jpg"
   },
   {
-    "id": 2,
-    "name": "Rohan Kumar",
-    "university": "Student, Raipur",
-    "comment": "I love the loyalty program! That 'Buy 5, Get 1 Free' deal at 'Campus Bites' is awesome – makes me feel like a valued customer. 'Student's Choice' isn't just saving me money, it's making my regular haunts even better.",
-    "image": "/images/student_avatar2.jpg"
-  },
-  {
-    "id": 3,
-    "name": "Mr. Alok Gupta",
-    "university": "Owner, 'Campus Bites' Cafe",
-    "comment": "Partnering with 'Student's Choice' was a smart business decision. We've seen a noticeable increase in student footfall, especially during weekdays. It provides targeted visibility within the NIT community that's hard to achieve otherwise. The onboarding was smooth, and the program is well-managed.",
-    "image": "/images/owner_avatar1.jpg"
-  },
-  {
     "id": 4,
     "name": "Sameer Joshi",
     "university": "Student, NIT Raipur",
