@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useCallback } from "react"; // Import useCallback
+import { useState, useEffect, useCallback } from "react"; // Import useCallback
 // --- Components & Data Imports ---
 
 import AnimatedFoodBackground from "./components/AnimatedFoodBackground";
@@ -6,7 +6,7 @@ import Footer from "./sections/Footer"; // Import Footer component
 import allShopsData from "./data/affiliatedShops.json";
 import testimonials from "./data/testimonials.json"; // Assuming this is a JSON file with testimonial data
 import { Analytics } from "@vercel/analytics/react";
-import { Coordinates, KnownLocation, Shop, Testimonial } from "./types";
+import { Coordinates, KnownLocation, Shop } from "./types";
 import Navbar from "./components/Navbar";
 import HeroSection from "./sections/HeroSection";
 import WhatWeDoSection from "./sections/WhatWeDoSection";

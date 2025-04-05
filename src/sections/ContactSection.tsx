@@ -1,6 +1,7 @@
 import React from "react";
 import { motion } from "framer-motion";
 import { Mail, MapPinned } from "lucide-react";
+import ContactForm from "../components/ContactForm";
 
 const ContactSection: React.FC = () => {
   return (
@@ -65,80 +66,9 @@ const ContactSection: React.FC = () => {
               </div>
             </div>
           </motion.div>
-          {/* Optional: Add a simple contact form here later */}
-          <motion.div
-            initial={{ opacity: 0, x: 30 }}
-            whileInView={{ opacity: 1 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.7, delay: 0.2 }}
-            className="bg-white p-8 rounded-lg shadow-xl border border-gray-200"
-          >
-            <h3 className="text-2xl font-bold text-gray-900 mb-6">
-              Send a Message (Coming Soon)
-            </h3>
-            <form action="#" method="POST" className="space-y-6">
-              {/* Form fields (disabled for now) */}
-              <div>
-                <label
-                  htmlFor="name"
-                  className="block text-sm font-medium text-gray-700"
-                >
-                  Full Name
-                </label>
-                <input
-                  type="text"
-                  name="name"
-                  id="name"
-                  autoComplete="name"
-                  disabled
-                  className="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm bg-gray-100 cursor-not-allowed focus:outline-none sm:text-sm"
-                  placeholder="Your Name"
-                />
-              </div>
-              <div>
-                <label
-                  htmlFor="email"
-                  className="block text-sm font-medium text-gray-700"
-                >
-                  Email
-                </label>
-                <input
-                  type="email"
-                  name="email"
-                  id="email"
-                  autoComplete="email"
-                  disabled
-                  className="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm bg-gray-100 cursor-not-allowed focus:outline-none sm:text-sm"
-                  placeholder="you@example.com"
-                />
-              </div>
-              <div>
-                <label
-                  htmlFor="message"
-                  className="block text-sm font-medium text-gray-700"
-                >
-                  Message
-                </label>
-                <textarea
-                  id="message"
-                  name="message"
-                  rows={4}
-                  disabled
-                  className="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm bg-gray-100 cursor-not-allowed focus:outline-none sm:text-sm"
-                  placeholder="Your message..."
-                ></textarea>
-              </div>
-              <div>
-                <button
-                  type="submit"
-                  disabled
-                  className="w-full flex justify-center py-2 px-4 border border-transparent rounded-md shadow-sm text-sm font-medium text-white bg-gray-400 cursor-not-allowed"
-                >
-                  Send Message (Feature disabled)
-                </button>
-              </div>
-            </form>
-          </motion.div>
+
+          {/* New Contact Form Component */}
+          <ContactForm />
         </div>
       </div>
     </section>
