@@ -23,6 +23,7 @@ import MapContainer from "./components/MapContainer";
 import ShopCard from "./components/ShopCard";
 import AnimatedFoodBackground from "./components/AnimatedFoodBackground";
 import TestimonialCarousel from "./components/TestimonialCarousel";
+import SearchCards from "./components/SearchCards"; // Import the SearchCards component
 import allShopsData from "./data/affiliatedShops.json";
 import testimonials from "./data/testimonials.json"; // Assuming this is a JSON file with testimonial data
 import { Analytics } from "@vercel/analytics/react";
@@ -68,20 +69,23 @@ function App(): JSX.Element {
   };
 
   // --- Updated Search Handler ---
-  const handleSearch = (): void => {
-    const searchTerm = searchQuery.toLowerCase().trim();
-    const location = knownLocations[searchTerm];
+  const handleSearch = (location?: string): void => {
+    const searchTerm = location
+      ? location.toLowerCase().trim()
+      : searchQuery.toLowerCase().trim();
+    const foundLocation = knownLocations[searchTerm];
 
-    setSelectedShopId(null); // <-- Clear selection on new search
+    setSelectedShopId(null); // Clear selection on new search
 
-    if (location) {
-      console.log("Found location:", location);
-      setMapCenter({ lat: location.lat, lng: location.lng });
-      setMapZoom(location.zoom);
-      if (location.tag) {
+    if (foundLocation) {
+      console.log("Found location:", foundLocation);
+      setMapCenter({ lat: foundLocation.lat, lng: foundLocation.lng });
+      setMapZoom(foundLocation.zoom);
+      if (foundLocation.tag) {
         setFilteredShops(
           typedShopsData.filter(
-            (shop) => shop.tags && shop.tags.includes(location.tag as string)
+            (shop) =>
+              shop.tags && shop.tags.includes(foundLocation.tag as string)
           )
         );
       } else {
@@ -107,7 +111,7 @@ function App(): JSX.Element {
       setMapZoom(17); // Zoom in closer when a specific shop is selected
 
       // Optional: Scroll map into view if not already visible
-      const mapElement = document.getElementById("shops-map");
+      const mapElement = document.getElementById("search-area");
       if (mapElement && newSelectedId) {
         // Only scroll if selecting
         mapElement.scrollIntoView({ behavior: "smooth", block: "nearest" });
@@ -163,7 +167,7 @@ function App(): JSX.Element {
       <AnimatedFoodBackground count={12} enabled={isFoodAnimationsEnabled} />
       {/* <FloatingFoods /> */}
       {/* Navigation */}
-      <nav className="fixed top-0 w-full glass-effect shadow-sm z-50">
+      <nav className="fixed top-0 w-full bg-white/20 backdrop-blur-sm shadow-sm z-50">
         {/* ... existing nav code ... */}
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex items-center justify-between h-16">
@@ -322,42 +326,10 @@ function App(): JSX.Element {
           </motion.div>
         </div>
         {/* Optional: Add subtle background elements */}
-        {/* <div className="absolute top-0 right-0 -mt-20 -mr-20 w-64 h-64 bg-red-200 rounded-full opacity-30"></div>
-          <div className="absolute bottom-0 left-0 -mb-24 -ml-12 w-80 h-80 bg-orange-200 rounded-full opacity-30"></div> */}
+        <div className="absolute top-0 right-0 -mt-20 -mr-20 w-64 h-64 bg-red-200 rounded-full opacity-30"></div>
+        <div className="absolute bottom-0 left-0 -mb-24 -ml-12 w-80 h-80 bg-orange-200 rounded-full opacity-30"></div>
       </section>
-      {/* Search Section */}
-      <section
-        id="search-area"
-        className="py-6 bg-white sticky top-[63px] md:top-16 z-40 shadow-md"
-      >
-        {" "}
-        {/* Adjusted top value */}
-        <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="relative flex items-center space-x-2">
-            <div className="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
-              <Search className="h-5 w-5 text-gray-400" />
-            </div>
-            <input
-              type="text"
-              className="block w-full pl-10 pr-3 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-red-500 focus:border-transparent shadow-sm"
-              placeholder="Search area (e.g., NIT Raipur, AIIMS)..."
-              value={searchQuery}
-              onChange={handleSearchInputChange}
-              onKeyPress={handleSearchInputKeyPress}
-            />
-            <button
-              onClick={handleSearch}
-              className="px-4 py-3 bg-red-500 text-white rounded-lg hover:bg-red-600 focus:outline-none focus:ring-2 focus:ring-red-500 focus:ring-offset-1 transition-colors shadow-sm font-medium"
-            >
-              Search
-            </button>
-            {/* Optional Filter Button - Future Feature */}
-            {/* <button className="p-3 border border-gray-300 rounded-lg text-gray-500 hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-red-500 focus:ring-offset-1 transition-colors">
-                 <Filter className="h-5 w-5" />
-             </button> */}
-          </div>
-        </div>
-      </section>
+
       {/* What We Do Section */}
       <section id="what-we-do" className="py-24 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -464,33 +436,51 @@ function App(): JSX.Element {
             </p>
           </motion.div>
 
-          {/* Map Container - Pass new props */}
-          <motion.div
-            id="shops-map"
-            className="mb-16 rounded-lg overflow-hidden shadow-xl border border-gray-200" // Added border
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.8 }}
-          >
-            {import.meta.env.VITE_Maps_API_KEY ? (
-              <MapContainer
-                apiKey={import.meta.env.VITE_Maps_API_KEY} // Pass API key directly
-                libraries={googleMapsLibraries} // Pass constant libraries array
-                center={mapCenter}
-                zoom={mapZoom}
-                shops={filteredShops}
-                selectedShopId={selectedShopId} // <-- Pass selected ID
-                onMarkerClick={handleMarkerClick} // <-- Pass marker click handler
-                onMapClick={handleMapClick} // <-- Pass map click handler
-                getGoogleMapsUrl={getGoogleMapsUrl} // <-- Pass URL generator
-              />
-            ) : (
-              <div className="h-96 flex items-center justify-center bg-gray-200 text-gray-600 rounded-lg">
-                Map requires VITE_Maps_API_KEY to be set in your .env file.
+          {/* Search Section */}
+          <section id="search-area" className="py-6 bg-white">
+            <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+              <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+                {/* Left Side: Search Cards */}
+                <div className="col-span-1">
+                  <h2 className="text-xl font-bold text-gray-800 mb-4">
+                    Search Locations
+                  </h2>
+                  <SearchCards onSearch={handleSearch} />
+                </div>
+
+                {/* Right Side: Google Maps */}
+                <div className="col-span-2">
+                  <motion.div
+                    id="shops-map"
+                    className="rounded-lg overflow-hidden shadow-xl border border-gray-200 h-[500px]"
+                    initial={{ opacity: 0, y: 20 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    viewport={{ once: true }}
+                    transition={{ duration: 0.8 }}
+                  >
+                    {import.meta.env.VITE_Maps_API_KEY ? (
+                      <MapContainer
+                        apiKey={import.meta.env.VITE_Maps_API_KEY}
+                        libraries={googleMapsLibraries}
+                        center={mapCenter}
+                        zoom={mapZoom}
+                        shops={filteredShops}
+                        selectedShopId={selectedShopId}
+                        onMarkerClick={handleMarkerClick}
+                        onMapClick={handleMapClick}
+                        getGoogleMapsUrl={getGoogleMapsUrl}
+                      />
+                    ) : (
+                      <div className="h-full flex items-center justify-center bg-gray-200 text-gray-600 rounded-lg">
+                        Map requires VITE_Maps_API_KEY to be set in your .env
+                        file.
+                      </div>
+                    )}
+                  </motion.div>
+                </div>
               </div>
-            )}
-          </motion.div>
+            </div>
+          </section>
 
           {/* Section Title for Cards (Optional) */}
           <motion.h3
@@ -592,7 +582,7 @@ function App(): JSX.Element {
               transition={{ duration: 0.7 }}
               className="space-y-8"
             >
-              <div className="flex items-start space-x-4 p-6 bg-white rounded-lg shadow-md hover:shadow-lg transition-shadow">
+              {/* <div className="flex items-start space-x-4 p-6 bg-white rounded-lg shadow-md hover:shadow-lg transition-shadow">
                 <div className="flex-shrink-0">
                   <Phone className="h-8 w-8 text-red-500" />
                 </div>
@@ -608,7 +598,7 @@ function App(): JSX.Element {
                     +91 90288 91008
                   </a>
                 </div>
-              </div>
+              </div> */}
 
               <div className="flex items-start space-x-4 p-6 bg-white rounded-lg shadow-md hover:shadow-lg transition-shadow">
                 <div className="flex-shrink-0">
@@ -651,7 +641,7 @@ function App(): JSX.Element {
             {/* Optional: Add a simple contact form here later */}
             <motion.div
               initial={{ opacity: 0, x: 30 }}
-              whileInView={{ opacity: 1, x: 0 }}
+              whileInView={{ opacity: 1 }}
               viewport={{ once: true }}
               transition={{ duration: 0.7, delay: 0.2 }}
               className="bg-white p-8 rounded-lg shadow-xl border border-gray-200"
@@ -821,10 +811,10 @@ function App(): JSX.Element {
                 Contact
               </h4>
               <ul className="space-y-2 text-sm">
-                <li className="flex items-center">
+                {/* <li className="flex items-center">
                   <Phone className="w-4 h-4 mr-2 text-red-400" /> +91 90288
                   91008
-                </li>
+                </li> */}
                 <li className="flex items-center">
                   <Mail className="w-4 h-4 mr-2 text-orange-400" />{" "}
                   studentschoice11@gmail.com
