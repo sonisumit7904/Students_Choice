@@ -52,14 +52,14 @@ function App(): JSX.Element {
   const [isFoodAnimationsEnabled, setIsFoodAnimationsEnabled] =
     useState<boolean>(true);
   const [mapCenter, setMapCenter] = useState<Coordinates>(
-    knownLocations["raipur default"],
+    knownLocations["raipur default"]
   );
   const [mapZoom, setMapZoom] = useState<number>(
-    knownLocations["raipur default"].zoom,
+    knownLocations["raipur default"].zoom
   );
   const [filteredShops, setFilteredShops] = useState<Shop[]>(typedShopsData); // Initialize with all shops
   const [selectedShopId, setSelectedShopId] = useState<string | number | null>(
-    null,
+    null
   ); // <-- State for selected shop ID
 
   useEffect(() => {
@@ -86,23 +86,12 @@ function App(): JSX.Element {
       console.log("Found location:", foundLocation);
       setMapCenter({ lat: foundLocation.lat, lng: foundLocation.lng });
       setMapZoom(foundLocation.zoom);
-      if (foundLocation.tag) {
-        setFilteredShops(
-          typedShopsData.filter(
-            (shop) =>
-              shop.tags && shop.tags.includes(foundLocation.tag as string),
-          ),
-        );
-      } else {
-        setFilteredShops(typedShopsData);
-      }
     } else {
       console.warn("Location not predefined:", searchTerm);
-      setFilteredShops(typedShopsData); // Show all if search term not found
       setMapCenter(knownLocations["raipur default"]);
       setMapZoom(knownLocations["raipur default"].zoom);
       alert(
-        `Location "${searchTerm}" not recognized or no specific tag found. Showing all affiliated shops.`,
+        `Location "${searchTerm}" not recognized. Centering map to default location.`
       );
     }
   };
@@ -122,7 +111,7 @@ function App(): JSX.Element {
         mapElement.scrollIntoView({ behavior: "smooth", block: "nearest" });
       }
     },
-    [selectedShopId],
+    [selectedShopId]
   ); // Dependency array includes selectedShopId for toggling logic
 
   // --- Handler for Marker Click (passed to MapContainer) ---
@@ -134,7 +123,7 @@ function App(): JSX.Element {
         handleCardClick(shop);
       }
     },
-    [handleCardClick],
+    [handleCardClick]
   ); // handleCardClick is memoized with useCallback
 
   // --- Handler for Clicking the Map Background (Deselection) ---
@@ -144,13 +133,13 @@ function App(): JSX.Element {
 
   // --- Typed Event Handlers (no changes needed) ---
   const handleSearchInputChange = (
-    e: React.ChangeEvent<HTMLInputElement>,
+    e: React.ChangeEvent<HTMLInputElement>
   ): void => {
     setSearchQuery(e.target.value);
   };
 
   const handleSearchInputKeyPress = (
-    e: React.KeyboardEvent<HTMLInputElement>,
+    e: React.KeyboardEvent<HTMLInputElement>
   ): void => {
     if (e.key === "Enter") {
       handleSearch();
