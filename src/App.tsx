@@ -13,6 +13,7 @@ import WhatWeDoSection from "./sections/WhatWeDoSection";
 import TestimonialsSection from "./sections/TestimonialsSection";
 import ContactSection from "./sections/ContactSection";
 import ShopsSection from "./sections/ShopsSection";
+import disableShortcuts from "./disableShortcuts";
 
 const typedShopsData: Shop[] = allShopsData;
 
@@ -48,6 +49,7 @@ function App(): JSX.Element {
     setFilteredShops(typedShopsData);
     setMapCenter(knownLocations["raipur default"]);
     setMapZoom(knownLocations["raipur default"].zoom);
+    disableShortcuts();
   }, []);
 
   const toggleMenu = (): void => {
