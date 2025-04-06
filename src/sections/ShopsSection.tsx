@@ -99,21 +99,20 @@ const ShopsSection: React.FC<ShopsSectionProps> = ({
 
         {/* Section Title for Cards */}
         <motion.div
-          className="flex flex-col items-center justify-center my-16 px-4 py-8 bg-gradient-to-br from-gray-50 to-white rounded-lg shadow-sm"
+          className="flex flex-col items-center text-center justify-center my-12 md:my-16 px-4 sm:px-6 py-6 bg-gradient-to-br from-gray-50 to-white rounded-lg shadow-sm"
           initial={{ opacity: 0 }}
           whileInView={{ opacity: 1 }}
           viewport={{ once: true }}
           transition={{ duration: 0.5, delay: 0.2 }}
         >
-          <h3 className="text-3xl font-extrabold text-gray-900 mb-4 flex items-center space-x-2">
-            <Utensils className="w-6 h-6 text-red-600" />
+          <h3 className="text-2xl md:text-3xl font-extrabold text-gray-900 mb-2 md:mb-4 flex items-center space-x-2">
             <span>All Restaurants and Shops</span>
           </h3>
-          <div className="w-24 h-1 bg-red-600 rounded-full"></div>
+          <div className="w-16 h-1 bg-red-600 rounded-full"></div>
         </motion.div>
 
-        {/* Shop Cards List */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        {/* Shop Cards List remains responsive */}
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
           {filteredShops.length > 0 ? (
             filteredShops.map((shop, index) => (
               <motion.div

@@ -40,14 +40,14 @@ function App(): JSX.Element {
   const [isFoodAnimationsEnabled, setIsFoodAnimationsEnabled] =
     useState<boolean>(true);
   const [mapCenter, setMapCenter] = useState<Coordinates>(
-    knownLocations["raipur default"]
+    knownLocations["raipur default"],
   );
   const [mapZoom, setMapZoom] = useState<number>(
-    knownLocations["raipur default"].zoom
+    knownLocations["raipur default"].zoom,
   );
   const [filteredShops, setFilteredShops] = useState<Shop[]>(typedShopsData); // Initialize with all shops
   const [selectedShopId, setSelectedShopId] = useState<string | number | null>(
-    null
+    null,
   ); // <-- State for selected shop ID
 
   useEffect(() => {
@@ -81,7 +81,7 @@ function App(): JSX.Element {
       setMapZoom(knownLocations["raipur default"].zoom);
       // Replace alert with a toast or UI message
       console.log(
-        `Location "${searchTerm}" not recognized. Centering map to default location.`
+        `Location "${searchTerm}" not recognized. Centering map to default location.`,
       );
     }
   };
@@ -100,7 +100,7 @@ function App(): JSX.Element {
         mapElement.scrollIntoView({ behavior: "smooth", block: "nearest" });
       }
     },
-    [selectedShopId]
+    [selectedShopId],
   ); // Dependency array includes selectedShopId for toggling logic
 
   // --- Handler for Marker Click (passed to MapContainer) ---
@@ -112,7 +112,7 @@ function App(): JSX.Element {
         handleCardClick(shop);
       }
     },
-    [handleCardClick]
+    [handleCardClick],
   ); // handleCardClick is memoized with useCallback
 
   // --- Handler for Clicking the Map Background (Deselection) ---
@@ -126,7 +126,7 @@ function App(): JSX.Element {
       return `https://www.google.com/maps/dir/?api=1&destination=${shop.latitude},${shop.longitude}`;
     }
     return `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(
-      shop.name + ", " + shop.address
+      shop.name + ", " + shop.address,
     )}`;
   };
 
