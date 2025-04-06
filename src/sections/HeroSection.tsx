@@ -18,20 +18,17 @@ const HeroSection: React.FC = () => {
           transition={{ duration: 0.8 }}
           className="text-center"
         >
-          <h1 className="text-4xl tracking-tight font-extrabold text-gray-900 sm:text-5xl md:text-6xl">
-            <span className="block xl:inline">
+          <div className="text-center">
+            <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-extrabold text-gray-900">
               Unlock Exclusive{" "}
               <span className="text-red-600">Student Discounts</span>
-            </span>{" "}
-            <span className="block text-orange-500 xl:inline">
-              at Your Favorite Eateries
-            </span>
-          </h1>
-          <p className="mt-3 max-w-md mx-auto text-base text-gray-500 sm:text-lg md:mt-5 md:text-xl md:max-w-3xl">
-            Student's Choice partners with local restaurants near NIT Raipur,
-            AIIMS, and more to bring you unbeatable deals. Show your ID, save
-            money, eat well!
-          </p>
+            </h1>
+            <p className="mt-3 text-sm sm:text-base md:text-lg lg:text-xl text-gray-500">
+              Student's Choice partners with local restaurants near NIT Raipur,
+              AIIMS, and more to bring you unbeatable deals. Show your ID, save
+              money, eat well!
+            </p>
+          </div>
           <div className="mt-5 max-w-md mx-auto sm:flex sm:justify-center md:mt-8">
             <div className="rounded-md shadow">
               <a

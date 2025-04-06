@@ -66,26 +66,26 @@ const TestimonialCarousel: React.FC<TestimonialCarouselProps> = ({
               x: { type: "spring", stiffness: 300, damping: 30 },
               opacity: { duration: 0.2 },
             }}
-            className="bg-gradient-to-br from-red-50 to-orange-50 rounded-xl p-8 shadow-lg"
+            className="bg-gradient-to-br from-red-50 to-orange-50 rounded-lg p-4 shadow-md"
           >
             <div className="flex items-center">
-              <div className="ml-4">
-                <h3 className="text-xl font-semibold text-gray-900">
+              <div className="ml-3">
+                <h3 className="text-lg font-medium text-gray-900">
                   {testimonials[currentIndex].name}
                 </h3>
-                <p className="text-gray-600">
+                <p className="text-sm text-gray-600">
                   {testimonials[currentIndex].university}
                 </p>
               </div>
             </div>
-            <p className="mt-6 text-gray-600 italic text-lg">
+            <p className="mt-4 text-gray-600 italic text-sm">
               "{testimonials[currentIndex].comment}"
             </p>
           </motion.div>
         </AnimatePresence>
 
         {testimonials.length > 1 && (
-          <div className="flex justify-center mt-8 space-x-2">
+          <div className="flex justify-center mt-6 space-x-1">
             {testimonials.map((_, index) => (
               <button
                 key={index}
@@ -93,7 +93,7 @@ const TestimonialCarousel: React.FC<TestimonialCarouselProps> = ({
                   setDirection(index > currentIndex ? 1 : -1);
                   setCurrentIndex(index);
                 }}
-                className={`w-3 h-3 rounded-full ${
+                className={`w-2.5 h-2.5 rounded-full ${
                   index === currentIndex ? "bg-red-500" : "bg-gray-300"
                 } transition-colors`}
                 aria-label={`Go to slide ${index + 1}`}

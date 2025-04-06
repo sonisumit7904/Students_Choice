@@ -12,7 +12,7 @@ module.exports = {
       },
       fontFamily: {
         // Add custom fonts if you have them
-        // sans: ['Inter', 'sans-serif'], // Example using Inter
+        sans: ["Inter", "sans-serif"], // Example using Inter
       },
       animation: {
         // Add the float animation here

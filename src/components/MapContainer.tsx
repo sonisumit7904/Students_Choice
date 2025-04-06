@@ -15,10 +15,11 @@ const containerStyle = {
   height: "500px",
 };
 
-// Map options (remains the same)
+// Map options (updated with gestureHandling)
 const mapOptions = {
   disableDefaultUI: true,
   zoomControl: true,
+  gestureHandling: "greedy", // Allow pinch-zoom and drag
 };
 
 const MapContainer: React.FC<MapContainerProps> = ({

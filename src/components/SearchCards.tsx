@@ -14,7 +14,7 @@ const SearchCards: React.FC<SearchCardsProps> = ({ onSearch }) => {
     onSearch(tag);
 
     // Scroll to the map section
-    const mapElement = document.getElementById("shops");
+    const mapElement = document.getElementById("search-area");
     if (mapElement) {
       mapElement.scrollIntoView({ behavior: "smooth", block: "start" });
     }

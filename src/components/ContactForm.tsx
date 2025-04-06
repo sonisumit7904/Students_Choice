@@ -44,7 +44,7 @@ const ContactForm: React.FC = () => {
         {/* --- REMOVED Name Field --- */}
         {/* The entire div containing the Name label, input, and ValidationError is deleted */}
 
-        {/* Email field - Kept */}
+        {/* Email field - Updated */}
         <div>
           <label
             htmlFor="contact-form-email" // Unique ID
@@ -58,7 +58,7 @@ const ContactForm: React.FC = () => {
             id="contact-form-email"
             autoComplete="email"
             required
-            className={`mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-orange-500 focus:border-orange-500 sm:text-sm ${state.submitting ? "bg-gray-100 cursor-not-allowed" : "bg-white"}`}
+            className="mt-1 block w-full px-4 py-3 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-orange-500 focus:border-orange-500 sm:text-base"
             placeholder="you@example.com"
             disabled={state.submitting}
           />
