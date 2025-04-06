@@ -3,21 +3,21 @@
     "id": 1,
     "name": "Anjali Verma",
     "university": "Student, NIT Raipur",
-    "comment": "Being an engineering student means watching my budget closely. 'Student's Choice' has been fantastic! Getting that consistent discount at my favorite cafes near campus just by showing my ID makes eating out so much more affordable. Plus, it's how I discovered 'Chai Point Express' – my new go-to spot!",
-    "image": "/images/student_avatar1.jpg"
+    "comment": "As an engineering student, money's always tight. 'Student's Choice' is really helpful! It tells us about different shops nearby that give student discounts, so they automatically become my top choice for eating out. Plus, it even takes you straight to Google Maps, so finding the place is super easy. Definitely saves both money and time!",
+    "role": "student"
   },
   {
     "id": 4,
     "name": "Sameer Joshi",
     "university": "Student, NIT Raipur",
-    "comment": "What I appreciate most is the simplicity. No complicated apps, just show your ID. I know the restaurants listed in 'Student's Choice' offer good value, which makes deciding where to grab a quick lunch between classes super easy and reliable.",
-    "image": "/images/student_avatar3.jpg"
+    "comment": "What I like is that it's simple. It shows you which shops give discounts to students, making them the go-to options. And the Google Maps link is really useful for finding the exact location without any hassle. Makes deciding where to eat between classes super easy and reliable.",
+    "role": "student"
   },
   {
-    "id": 5,
-    "name": "Priya Singh",
-    "university": "Manager, 'The Food Hub'",
-    "comment": "The collaboration through 'Student's Choice' has been very positive. The happy hour promotion suggested by the program has genuinely boosted our traffic during quieter afternoon hours. Being recognized as a 'Student's Choice' venue definitely enhances our reputation among local college students.",
-    "image": "/images/manager_avatar1.jpg"
+    "id": 6,
+    "name": "Rohan Patel",
+    "university": "Student, NIT Raipur",
+    "comment": "NIT life can be hectic. 'Student's Choice' makes it easier to find good food deals around campus. Knowing which shops offer student discounts makes them the first ones I think of. And the direct link to Google Maps is a lifesaver for finding new places quickly. Helps save a bit of money and makes things convenient!",
+    "role": "student"
   }
 ]
