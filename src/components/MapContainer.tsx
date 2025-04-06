@@ -5,7 +5,7 @@ import {
   MarkerF,
   InfoWindowF,
 } from "@react-google-maps/api";
-import { ExternalLink } from "lucide-react";
+import { FaExternalLinkAlt } from "react-icons/fa";
 // Make sure these types are correctly imported or defined in '../types'
 import { Coordinates, Shop, MapContainerProps } from "../types";
 
@@ -156,7 +156,7 @@ const MapContainer: React.FC<MapContainerProps> = ({
                 rel="noopener noreferrer"
                 className="inline-flex items-center px-3 py-1 bg-blue-500 text-white text-xs font-medium rounded hover:bg-blue-600 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-1 transition-colors"
               >
-                Get Directions <ExternalLink className="w-3 h-3 ml-1.5" />
+                Get Directions <FaExternalLinkAlt className="w-3 h-3 ml-1.5" />
               </a>
             </div>
           </InfoWindowF>

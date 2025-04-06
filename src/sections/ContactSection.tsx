@@ -1,6 +1,7 @@
 import React from "react";
 import { motion } from "framer-motion";
-import { Mail, MapPinned } from "lucide-react";
+import { HiOutlineMail as Mail } from "react-icons/hi"; // Alternative for lucide-react's Mail
+import { IoLocationSharp as MapPinned } from "react-icons/io5";
 import ContactForm from "../components/ContactForm";
 
 const ContactSection: React.FC = () => {

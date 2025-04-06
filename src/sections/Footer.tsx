@@ -1,5 +1,6 @@
 import React from "react";
-import { Mail, MapPin } from "lucide-react";
+// Import specific icons from the Feather set within react-icons
+import { FiMail, FiMapPin } from "react-icons/fi";
 
 const Footer: React.FC = () => {
   return (
@@ -72,11 +73,11 @@ const Footer: React.FC = () => {
             </h4>
             <ul className="space-y-2 text-sm">
               <li className="flex items-center">
-                <Mail className="w-4 h-4 mr-2 text-orange-400" />{" "}
+                <FiMail className="w-4 h-4 mr-2 text-orange-400" />{" "}
                 studentschoice11@gmail.com
               </li>
               <li className="flex items-center">
-                <MapPin className="w-4 h-4 mr-2 text-amber-400" /> Raipur,
+                <FiMapPin className="w-4 h-4 mr-2 text-amber-400" /> Raipur,
                 Chhattisgarh
               </li>
             </ul>

@@ -1,6 +1,9 @@
 import React from "react";
 import { motion } from "framer-motion";
-import { Star, Tag, Clock, ExternalLink } from "lucide-react"; // <-- Added ExternalLink
+import { BiStar as Star } from "react-icons/bi"; // Alternative for lucide-react's Star
+import { BsTag as Tag } from "react-icons/bs"; // Alternative for lucide-react's Tag
+import { FaExternalLinkAlt as ExternalLink } from "react-icons/fa";
+import { GrClock as Clock } from "react-icons/gr";
 import { Shop, ShopCardProps } from "../types";
 
 // Fallback image if shop.image is not provided

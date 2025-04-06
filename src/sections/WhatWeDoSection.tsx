@@ -1,6 +1,9 @@
 import React from "react";
 import { motion } from "framer-motion";
-import { MapPin, GraduationCap, Utensils } from "lucide-react";
+import { RiPushpinLine as MapPin } from "react-icons/ri";
+// import { IoLocationSharp as } from 'react-icons/io5';
+import { MdRestaurant as Utensils } from "react-icons/md";
+import { FaGraduationCap as GraduationCap } from "react-icons/fa";
 
 const WhatWeDoSection: React.FC = () => {
   return (

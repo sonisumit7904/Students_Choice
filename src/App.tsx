@@ -14,6 +14,7 @@ import TestimonialsSection from "./sections/TestimonialsSection";
 import ContactSection from "./sections/ContactSection";
 import ShopsSection from "./sections/ShopsSection";
 import disableShortcuts from "./disableShortcuts";
+import AnalyticsErrorBoundary from "./components/AnalyticsErrorBoundary";
 
 const typedShopsData: Shop[] = allShopsData;
 
@@ -145,7 +146,10 @@ function App(): JSX.Element {
       <TestimonialsSection testimonials={testimonials} />
       <ContactSection />
       <Footer />
-      <Analytics />
+      {/* Wrap Analytics component */}
+      <AnalyticsErrorBoundary>
+        <Analytics />
+      </AnalyticsErrorBoundary>
     </div>
   );
 }

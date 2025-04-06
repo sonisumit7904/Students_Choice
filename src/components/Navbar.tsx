@@ -1,5 +1,6 @@
 import React from "react";
-import { Menu, X } from "lucide-react";
+import { FiMenu } from "react-icons/fi";
+import { AiOutlineClose } from "react-icons/ai";
 import { motion } from "framer-motion";
 
 interface NavbarProps {
@@ -61,9 +62,9 @@ const Navbar: React.FC<NavbarProps> = ({ isMenuOpen, toggleMenu }) => {
             >
               <span className="sr-only">Open main menu</span>
               {isMenuOpen ? (
-                <X className="block h-6 w-6" aria-hidden="true" />
+                <AiOutlineClose className="block h-6 w-6" aria-hidden="true" />
               ) : (
-                <Menu className="block h-6 w-6" aria-hidden="true" />
+                <FiMenu className="block h-6 w-6" aria-hidden="true" />
               )}
             </button>
           </div>

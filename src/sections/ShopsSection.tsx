@@ -1,6 +1,6 @@
 import React from "react";
 import { motion } from "framer-motion";
-import { Utensils } from "lucide-react";
+import { MdRestaurant as Utensils } from "react-icons/md";
 import MapContainer from "../components/MapContainer";
 import SearchCards from "../components/SearchCards";
 import ShopCard from "../components/ShopCard";
