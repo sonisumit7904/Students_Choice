@@ -29,14 +29,6 @@ export interface Shop {
   trending?: boolean;
 }
 
-export interface Testimonial {
-  id: number;
-  name: string;
-  university: string;
-  comment: string;
-  image: string;
-}
-
 // Props for MapContainer component
 export interface MapContainerProps {
   apiKey: string;
@@ -69,7 +61,6 @@ export interface Testimonial {
   name: string;
   university: string;
   comment: string;
-  image: string;
 }
 
 // Props for AnimatedFoodBackground

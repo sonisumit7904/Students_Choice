@@ -98,16 +98,19 @@ const ShopsSection: React.FC<ShopsSectionProps> = ({
         </section>
 
         {/* Section Title for Cards */}
-        <motion.h3
-          className="text-2xl font-bold text-indigo-800 mb-8 flex items-center justify-center gap-2"
+        <motion.div
+          className="flex flex-col items-center justify-center my-16 px-4 py-8 bg-gradient-to-br from-gray-50 to-white rounded-lg shadow-sm"
           initial={{ opacity: 0 }}
           whileInView={{ opacity: 1 }}
           viewport={{ once: true }}
           transition={{ duration: 0.5, delay: 0.2 }}
         >
-          <Utensils className="w-6 h-6 text-indigo-500" /> All Restaurants and
-          Shops
-        </motion.h3>
+          <h3 className="text-3xl font-extrabold text-gray-900 mb-4 flex items-center space-x-2">
+            <Utensils className="w-6 h-6 text-red-600" />
+            <span>All Restaurants and Shops</span>
+          </h3>
+          <div className="w-24 h-1 bg-red-600 rounded-full"></div>
+        </motion.div>
 
         {/* Shop Cards List */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
