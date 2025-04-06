@@ -53,3 +53,23 @@
   animation: float 3s ease-in-out infinite;
 }
 */
+
+/* --- TRY TO FIND A MORE SPECIFIC SELECTOR --- */
+/* Example 1: Based on a potential class (INSPECT TO FIND THE REAL ONE) */
+.some-google-maps-error-dialog-class {
+  display: none !important;
+  visibility: hidden !important; /* Belt and suspenders */
+  z-index: -1 !important; /* Push behind other elements */
+}
+
+/* Example 2: Targeting based on role (might hide other dialogs too!) */
+div[role="dialog"][aria-modal="true"] {
+  /* Be VERY careful with generic selectors */
+  /* You might need more specific parent selectors found during inspection */
+  /* display: none !important; */
+}
+
+/* Example 3: Targeting the container often used (VERY FRAGILE) */
+.gm-style > div:last-child > div[role="dialog"] {
+  /* display: none !important; */
+}

@@ -16,7 +16,12 @@ import ShopsSection from "./sections/ShopsSection";
 import disableShortcuts from "./disableShortcuts";
 import AnalyticsErrorBoundary from "./components/AnalyticsErrorBoundary";
 
-const typedShopsData: Shop[] = allShopsData;
+let typedShopsData: Shop[] = [];
+try {
+  typedShopsData = allShopsData;
+} catch (error) {
+  console.error("Error loading shop data:", error);
+}
 
 const knownLocations: Record<string, KnownLocation> = {
   "nit raipur": {
@@ -74,7 +79,8 @@ function App(): JSX.Element {
       console.warn("Location not predefined:", searchTerm);
       setMapCenter(knownLocations["raipur default"]);
       setMapZoom(knownLocations["raipur default"].zoom);
-      alert(
+      // Replace alert with a toast or UI message
+      console.log(
         `Location "${searchTerm}" not recognized. Centering map to default location.`,
       );
     }
@@ -91,7 +97,6 @@ function App(): JSX.Element {
       // Optional: Scroll map into view if not already visible
       const mapElement = document.getElementById("search-area");
       if (mapElement && newSelectedId) {
-        // Only scroll if selecting
         mapElement.scrollIntoView({ behavior: "smooth", block: "nearest" });
       }
     },
@@ -117,13 +122,33 @@ function App(): JSX.Element {
 
   // --- Generate Google Maps URL ---
   const getGoogleMapsUrl = (shop: Shop): string => {
-    // Prioritize Lat/Lng for accuracy
-    // return `https://www.google.com/maps/search/?api=1&query=${shop.latitude},${shop.longitude}`;
-    // Or use Directions API for routing from an unspecified start point
-    return `https://www.google.com/maps/dir/?api=1&destination=${shop.latitude},${shop.longitude}`;
-    // Or use Name + Address (less reliable for precise location pin)
-    // return `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(shop.name + ', ' + shop.address)}`;
+    if (shop.latitude && shop.longitude) {
+      return `https://www.google.com/maps/dir/?api=1&destination=${shop.latitude},${shop.longitude}`;
+    }
+    return `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(
+      shop.name + ", " + shop.address,
+    )}`;
   };
+
+  useEffect(() => {
+    const HIDE_POPUP_SELECTOR =
+      'div[style*="max-width: 375px;"][style*="position: absolute;"]';
+    let intervalId = setInterval(() => {
+      try {
+        const popupElement = document.querySelector(HIDE_POPUP_SELECTOR);
+        if (popupElement) {
+          console.log("Attempting to hide Google Maps error popup...");
+          popupElement.style.display = "none";
+          popupElement.style.visibility = "hidden";
+          clearInterval(intervalId);
+        }
+      } catch (error) {
+        console.error("Error trying to hide Google Maps popup:", error);
+      }
+    }, 1000);
+
+    return () => clearInterval(intervalId); // Ensure cleanup
+  }, []);
 
   return (
     <div className="min-h-screen bg-white overflow-x-hidden">
